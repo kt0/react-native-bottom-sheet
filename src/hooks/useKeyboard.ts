@@ -11,6 +11,7 @@ import {
   useAnimatedReaction,
   useSharedValue,
   useWorkletCallback,
+  useAnimatedKeyboard,
 } from 'react-native-reanimated';
 import { KEYBOARD_STATE } from '../constants';
 
@@ -30,6 +31,11 @@ const KEYBOARD_EVENT_MAPPER = {
 export const useKeyboard = () => {
   //#region variables
   const shouldHandleKeyboardEvents = useSharedValue(false);
+
+  const keyboard = useAnimatedKeyboard();
+  // const keyboardHeight = keyboard.height;
+  // const keyboardState = keyboard.state;
+
   const keyboardState = useSharedValue<KEYBOARD_STATE>(
     KEYBOARD_STATE.UNDETERMINED
   );
